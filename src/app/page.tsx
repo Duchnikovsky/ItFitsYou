@@ -1,6 +1,8 @@
 import CSS from './page.module.css'
 import Image from "next/image";
 import logo from '../assets/logo.png'
+import LeftPanel from '@/components/LeftPanel';
+import RightPanel from '@/components/RightPanel';
 
 export default function Home() {
   return (
@@ -9,7 +11,8 @@ export default function Home() {
         <Image src={logo} alt='logo' className={CSS.logo}/>
       </div>
       <div className={CSS.content}>
-
+        <LeftPanel />
+        <RightPanel />
       </div>
     </main>
   )

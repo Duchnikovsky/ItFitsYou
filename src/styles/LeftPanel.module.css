@@ -1,0 +1,142 @@
+.leftPanel{
+  width: 850px;
+  height: 700px;
+}
+
+.days{
+  width: 350px;
+  height: 30px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.day{
+  width: 50px;
+  text-align: center;
+  padding-top: 5px;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+}
+
+.day:hover{
+  background-color: #2d2d2d;
+  color: white;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+  cursor: pointer;
+}
+
+.dayActive{
+  width: 50px;
+  text-align: center;
+  padding-top: 5px;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.mealBox{
+  width: 350px;
+  height: auto;
+  border: 1px solid #bebebe;
+  margin-bottom: 5px;
+}
+
+.mealHeader{
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-size: 24px;
+  padding-top: 5px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px 0 10px;
+  box-sizing: border-box;
+}
+
+.kcal{
+  font-size: 14px;
+  color: gray;
+  font-weight: normal;
+}
+
+.buttonBox{
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 10px 0 10px 0
+}
+
+.addButton{
+  width: 40px;
+  height: 40px;
+  border: 0px;
+  font-size: 30px;
+  border-radius: 10px;
+  color: #2d2d2d;
+  background-color: #e6e6e6;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+}
+
+.addButton:hover{
+  background-color: #2d2d2d;
+  color: #e6e6e6;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+  cursor: pointer;
+}
+
+.summaryBox{
+  width: 350px;
+  height: auto;
+  border: 1px solid #bebebe;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.kcalBox{
+  width: 350px;
+  text-align: center;
+}
+
+.needHeader{
+  font-size: 13px;
+}
+
+.needComp{
+  font-size: 13px;
+}
+
+.progressBar{
+  margin-left: 140px;
+  margin-top: 5px;
+}
+
+.needsBox{
+  width: 350px;
+  height: auto;
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.needs{
+  width: 110px;
+  height: 70px;
+  text-align: center;
+}
+
+.needProgressBar{
+  margin-left: 20px;
+  margin-top: 5px;
+}
