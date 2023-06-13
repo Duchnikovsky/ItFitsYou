@@ -12,10 +12,10 @@ datasource db {
 
 model User {
   id           String @id @default(uuid())
-  email        String
+  email        String @unique
   password     String
-  kcal         Int
-  carbohydrate Int
-  protein      Int
-  fat          Int
+  kcal         Int?
+  carbohydrate Int?
+  protein      Int?
+  fat          Int?
 }

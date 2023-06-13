@@ -2,9 +2,11 @@
 import { useEffect, useState } from 'react'
 import CSS from '../styles/LeftPanel.module.css'
 import ProgressBar from './ProgressBar';
+import CenterPanel from './CenterPanel';
 
 export default function LeftPanel() {
   const [activeDay, setActiveDay] = useState(10)
+  const [listVisible, setListVisible] = useState(true)
 
   function changeDayHandler(day:number){
     setActiveDay(day)
@@ -23,6 +25,7 @@ export default function LeftPanel() {
   }
 
   return (
+    <>
     <div className={CSS.leftPanel}>
       <div className={CSS.days}>
         <div className={`${activeDay === 1 ? CSS.dayActive : CSS.day}`} onClick={() => changeDayHandler(1)}>MON</div>
@@ -114,5 +117,9 @@ export default function LeftPanel() {
         </div>
       </div>
     </div>
+    <div className={CSS.centerPanel}>
+      {listVisible && <CenterPanel data={activeDay}/>}
+    </div>
+    </>
   )
 }

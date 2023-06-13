@@ -1,5 +1,5 @@
 .leftPanel{
-  width: 850px;
+  width: 350px;
   height: 700px;
 }
 
@@ -139,4 +139,9 @@
 .needProgressBar{
   margin-left: 20px;
   margin-top: 5px;
+}
+
+.centerPanel{
+  width: 500px;
+  height: auto;
 }
