@@ -18,4 +18,26 @@ model User {
   carbohydrate String?
   protein      String?
   fat          String?
+  Meals        Meals[]
+}
+
+model Food {
+  id           String  @id @default(uuid())
+  name         String
+  kcal         Int
+  carbohydrate String
+  protein      String
+  fat          String
+  Meals        Meals[]
+}
+
+model Meals {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userEmail], references: [email])
+  userEmail String
+  category  Int
+  food      Food     @relation(fields: [foodId], references: [id])
+  foodId    String
+  serving   Int
+  day       DateTime
 }

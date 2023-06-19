@@ -223,11 +223,23 @@
   margin-bottom: 10px;
 }
 
-.addButton:hover{
+.addButton:not(:disabled):hover{
   background-color: #2d2d2d;
   color: #e6e6e6;
   transition-property: all;
   transition-duration: 200ms;
   transition-timing-function: linear;
   cursor: pointer;
+}
+
+.addButton:disabled{
+  color: gray;
+  font-size: 15px;
+}
+
+.spinDiv{
+  height: 450px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 100px;
 }

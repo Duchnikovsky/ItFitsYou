@@ -1,8 +1,9 @@
 import CSS from '../styles/RightPanel.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquarePollHorizontal } from '@fortawesome/free-solid-svg-icons';
+import { faSquarePollHorizontal, faRotate } from '@fortawesome/free-solid-svg-icons';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'
 
 interface Props {
   results: Number[],
@@ -11,10 +12,36 @@ interface Props {
 export default function CalculatorResult({results}:Props) {
   const { data:session } = useSession()
   const [buttonDisabled, setButtonDisabled] = useState(false)
+  const [updated, setUpdated] = useState(false)
+  const router = useRouter()
   
   async function handleAssign(){
+    setButtonDisabled(true)
+    setUpdated(false)
     if(session && session.user){
       const user = session.user
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/user`,{
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body:JSON.stringify({
+          email: user.email,
+          kcal: results[0],
+          carbohydrate: `${results[1]},${results[2]}`,
+          fat: `${results[3]},${results[4]}`,
+          protein: `${results[5]},${results[6]}`,
+        })
+      })
+      const result = await res.json()
+      if(result.type === 0){
+        setButtonDisabled(false)
+      }else{
+        setUpdated(true)
+        setTimeout(() => {
+          router.refresh()
+        },1500)
+      }
     }
   }
 
@@ -45,7 +72,7 @@ export default function CalculatorResult({results}:Props) {
       <div className={CSS.info}>You can assign result to your account to control your diet</div>
     <div className={CSS.saveBox}>
       {(session && session.user)
-        ?<>{buttonDisabled ? <button className={CSS.button} disabled>ASSIGN</button> : <button className={CSS.button} onClick={handleAssign}>ASSIGN</button>}</>
+        ?<>{buttonDisabled ? <button className={CSS.button} disabled>{updated ? 'ASSIGNED' : <FontAwesomeIcon icon={faRotate} spin className={CSS.spin}/>}</button> : <button className={CSS.button} onClick={handleAssign}>ASSIGN</button>}</>
         :<button className={CSS.button} disabled>NOT LOGGED</button>
       }
     </div>
