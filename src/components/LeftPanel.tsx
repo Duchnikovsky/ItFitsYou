@@ -161,6 +161,7 @@ export default function LeftPanel() {
     <>
       <div className={CSS.leftPanel}>
         <Days changeDay={changeDay} />
+        {process.env.NEXT_PUBLIC_API_URL}
         <div className={CSS.mealsDiv}>
           {meals.map((e: Meal, index: number) => (
             <div className={CSS.mealBox} key={index}>
