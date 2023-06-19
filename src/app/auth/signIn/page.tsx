@@ -8,7 +8,7 @@ import logo from "../../../assets/logo.png"
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation'
 
-export default function page() {
+export default function Page() {
   const router = useRouter()
   const [values, setValues]:any = useState({
     email: '',

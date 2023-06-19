@@ -7,7 +7,7 @@ import Image from "next/image";
 import logo from "../../../assets/logo.png"
 import { useRouter } from 'next/navigation'
 
-export default function page() {
+export default function Page() {
   const router = useRouter()
   const [values, setValues]:any = useState({
     email: '',
