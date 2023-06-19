@@ -170,7 +170,7 @@ export default function LeftPanel() {
               </div>
               {
                 meals[index].food.map((el: FoodTypes, i: number) => (
-                  <div className={CSS.mealContent}>
+                  <div className={CSS.mealContent} key={i}>
                     <div className={CSS.mealContentHeader}>
                       <div>{el.name} <span className={CSS.mealKcal}>{el.kcal} kcal</span></div>
                       {removeBlocked ? <div className={CSS.remove}>X</div> : <div className={CSS.remove} onClick={() => removeMeal(el)}>X</div>}
