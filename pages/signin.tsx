@@ -84,31 +84,29 @@ export default function Signin() {
   }
 
   return (
-    <>
-    </>
-    // <div className={CSS.main}>
-    //   <div className={CSS.header}>
-    //     <Image src={logo} alt='logo' className={CSS.logo} priority={true} onClick={() => router.push('/')} />
-    //   </div>
-    //   <form>
-    //     {
-    //       inputs.map((e, index) => (
-    //         <div key={index} className={CSS.inputBox}>
-    //           <span className={CSS.label}>{e.label}</span><br></br>
-    //           <input type={e.type} name={e.name} value={values[e.name]} required pattern={e.pattern} maxLength={e.maxlenght} className={CSS.input} onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}></input>
-    //           <i><FontAwesomeIcon icon={e.icon} /></i>
-    //           <div className={CSS.inputError}>
-    //             <span>{e.error}</span>
-    //           </div>
-    //         </div>
-    //       ))
-    //     }
-    //     {formDisabled ? <button className={CSS.button} disabled><FontAwesomeIcon icon={faRotate} spin className={CSS.spin} /></button> : <button className={CSS.button}>Sign in</button>}
-    //   </form>
-    //   <div className={CSS.redirection}>Don't have account? <b className={CSS.hover}><Link href='/signin' className={CSS.link}>sign up</Link></b></div>
-    //   {noti.length > 0 && <>
-    //     {noti === "Successfully logged in" ? <div><FontAwesomeIcon icon={faCircleCheck} beat className={CSS.icon} /><div className={CSS.noti}>{noti}</div></div> : <div><FontAwesomeIcon icon={faCircleInfo} beat className={CSS.icon} /><div className={CSS.noti}>{noti}</div></div>}
-    //   </>}
-    // </div>
+    <div className={CSS.main}>
+      <div className={CSS.header}>
+        <Image src={logo} alt='logo' className={CSS.logo} priority={true} onClick={() => router.push('/')} />
+      </div>
+      <form onSubmit={submitHandler}>
+        {
+          inputs.map((e, index) => (
+            <div key={index} className={CSS.inputBox}>
+              <span className={CSS.label}>{e.label}</span><br></br>
+              <input type={e.type} name={e.name} value={values[e.name]} required pattern={e.pattern} maxLength={e.maxlenght} className={CSS.input} onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}></input>
+              <i><FontAwesomeIcon icon={e.icon} /></i>
+              <div className={CSS.inputError}>
+                <span>{e.error}</span>
+              </div>
+            </div>
+          ))
+        }
+        {formDisabled ? <button className={CSS.button} disabled><FontAwesomeIcon icon={faRotate} spin className={CSS.spin} /></button> : <button className={CSS.button}>Sign up</button>}
+      </form>
+      <div className={CSS.redirection}>Don't have account? <b className={CSS.hover}><Link href='/signup' className={CSS.link}>sign up</Link></b></div>
+      {noti.length > 0 && <>
+        {noti === "Sucessfully created account" ? <div><FontAwesomeIcon icon={faCircleCheck} beat className={CSS.icon} /><div className={CSS.noti}>{noti}</div></div> : <div><FontAwesomeIcon icon={faCircleInfo} beat className={CSS.icon} /><div className={CSS.noti}>{noti}</div></div>}
+      </>}
+    </div>
   )
 }
