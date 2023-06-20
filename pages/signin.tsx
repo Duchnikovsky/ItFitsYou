@@ -40,55 +40,55 @@ export default function Signin() {
     }
   ]
 
-  async function submitHandler(e:any){
-    e.preventDefault()
-    setFormDisabled(true)
-    const email = values.email
-    const password = values.password
-    if(typeof email === 'string' && email.length > 3 && email.length <= 50 && email.match('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')){
-      if(typeof password === "string" && password.length >= 8 && password.length <= 18){
-        const res = await signIn('credentials',{
-          redirect: false,
-          email: email,
-          password: password,
-        })
-        if(res){
-          if(res.error === null){
-            setNoti('Successfully logged in')
-            setTimeout(()=>{
-              setNoti('')
-              router.push('/')
-            },1500)
-          }else{
-            setNoti('Incorrect login data')
-            setTimeout(()=>{
-              setNoti('')
-            },1500)
-          }
-        }
-        setFormDisabled(false)
-      }else{
-        setNoti('Password do not match requirements')
-        setTimeout(()=>{
-          setNoti('')
-        },1500)
-        setFormDisabled(false)
-      }
-    }else{
-      setNoti('Email do not match requirements')
-      setTimeout(()=>{
-        setNoti('')
-      },1500)
-      setFormDisabled(false)
-    }
-  }
+  // async function submitHandler(e:any){
+  //   e.preventDefault()
+  //   setFormDisabled(true)
+  //   const email = values.email
+  //   const password = values.password
+  //   if(typeof email === 'string' && email.length > 3 && email.length <= 50 && email.match('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')){
+  //     if(typeof password === "string" && password.length >= 8 && password.length <= 18){
+  //       const res = await signIn('credentials',{
+  //         redirect: false,
+  //         email: email,
+  //         password: password,
+  //       })
+  //       if(res){
+  //         if(res.error === null){
+  //           setNoti('Successfully logged in')
+  //           setTimeout(()=>{
+  //             setNoti('')
+  //             router.push('/')
+  //           },1500)
+  //         }else{
+  //           setNoti('Incorrect login data')
+  //           setTimeout(()=>{
+  //             setNoti('')
+  //           },1500)
+  //         }
+  //       }
+  //       setFormDisabled(false)
+  //     }else{
+  //       setNoti('Password do not match requirements')
+  //       setTimeout(()=>{
+  //         setNoti('')
+  //       },1500)
+  //       setFormDisabled(false)
+  //     }
+  //   }else{
+  //     setNoti('Email do not match requirements')
+  //     setTimeout(()=>{
+  //       setNoti('')
+  //     },1500)
+  //     setFormDisabled(false)
+  //   }
+  // }
 
   return (
     <div className={CSS.main}>
       <div className={CSS.header}>
         <Image src={logo} alt='logo' className={CSS.logo} priority={true} onClick={() => router.push('/')} />
       </div>
-      <form onSubmit={submitHandler}>
+      <form>
         {
           inputs.map((e, index) => (
             <div key={index} className={CSS.inputBox}>
