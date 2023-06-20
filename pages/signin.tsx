@@ -105,7 +105,7 @@ export default function Signin() {
       </form>
       <div className={CSS.redirection}>Don't have account? <b className={CSS.hover}><Link href='/signup' className={CSS.link}>sign up</Link></b></div>
       {noti.length > 0 && <>
-        {noti === "Sucessfully created account" ? <div><FontAwesomeIcon icon={faCircleCheck} beat className={CSS.icon} /><div className={CSS.noti}>{noti}</div></div> : <div><FontAwesomeIcon icon={faCircleInfo} beat className={CSS.icon} /><div className={CSS.noti}>{noti}</div></div>}
+        {noti === "Successfully logged in" ? <div><FontAwesomeIcon icon={faCircleCheck} beat className={CSS.icon} /><div className={CSS.noti}>{noti}</div></div> : <div><FontAwesomeIcon icon={faCircleInfo} beat className={CSS.icon} /><div className={CSS.noti}>{noti}</div></div>}
       </>}
     </div>
   )
