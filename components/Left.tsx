@@ -5,6 +5,7 @@ import { getSession, useSession } from 'next-auth/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRotate } from '@fortawesome/free-solid-svg-icons';
 import Summary from './Summary';
+import Center from './Center';
 
 interface FoodTypes {
   mealId: string,
@@ -34,7 +35,7 @@ interface Meal {
 }
 
 export default function Left() {
-  const [selectedDay, setSelectedDay] = useState(10)
+  const [selectedDay, setSelectedDay] = useState(new Date())
   const [selectedMeal, setSelectedMeal] = useState(10)
   const [centerVisible, setCenterVisible] = useState(false)
   const [removeBlocked, setRemoveBlocked] = useState(false)
@@ -197,6 +198,9 @@ export default function Left() {
         <div className={CSS.summaryBox}>
           <Summary values={values} />
         </div>
+      </div>
+      <div className={CSS.centerPanel}>
+        {centerVisible && <Center meal={selectedMeal} day={selectedDay} refreshMeals={refreshMeals} closePanel={closePanel} />}
       </div>
     </>
   )

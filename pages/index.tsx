@@ -4,26 +4,11 @@ import Image from "next/image";
 import logo from '../assets/logo.png'
 import Left from '../components/Left';
 import { Inter } from 'next/font/google'
+import Right from '../components/Right';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-
-  // async function fetchData(){
-  //   const res = await fetch('/api/signup',{
-  //     method: "POST",
-  //     headers: {
-  //       "Content-type": "application/json",
-  //     },
-  //     body:JSON.stringify({
-  //       email: "filipduchnik@outlook.com",
-  //       password: "Pain272727",
-  //     })
-  //   })
-  //   const data = await res.json()
-  //   console.log(data)
-  // }
-
   return (
     <div className={CSS.main}>
       <Head>
@@ -36,6 +21,7 @@ export default function Home() {
       <div className={inter.className}>
         <div className={CSS.content}>
           <Left />
+          <Right />
         </div>
       </div>
     </div>
