@@ -109,7 +109,7 @@ export default function SignUp() {
   return (
     <div className={CSS.main}>
       <div className={CSS.header}>
-        <Image src={logo} alt='logo' className={CSS.logo} priority={true} onClick={() => router.push('/')} />
+      <Link href='/'><Image src={logo} alt='logo' className={CSS.logo} priority={true} onClick={() => router.push('/')} /></Link>
       </div>
       <form onSubmit={submitHandler}>
         {
