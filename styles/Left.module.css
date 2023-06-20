@@ -1,0 +1,246 @@
+.leftPanel{
+  width: 350px;
+  height: 700px;
+}
+
+.days{
+  width: 350px;
+  height: 30px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.day{
+  width: 50px;
+  text-align: center;
+  padding-top: 5px;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+}
+
+.day:hover{
+  background-color: #2d2d2d;
+  color: white;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+  cursor: pointer;
+}
+
+.dayActive{
+  width: 50px;
+  text-align: center;
+  padding-top: 5px;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.mealsDiv{
+  width: 350px;
+  height: 505px;
+  overflow-y: scroll;
+}
+
+.mealBox{
+  width: 333px;
+  height: auto;
+  border: 1px solid #bebebe;
+  margin-bottom: 5px;
+}
+
+.mealHeader{
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-size: 24px;
+  padding-top: 5px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px 0 10px;
+  box-sizing: border-box;
+}
+
+.mealContent{
+  width: 313px;
+  margin-left: 10px;
+  height: 65px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border-top: 1px solid #bebebe;
+  border-bottom: 1px solid #bebebe;
+}
+
+.mealContentHeader{
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-size: 16px;
+  display: flex;
+  padding: 5px 10px 0 10px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.mealKcal{
+  font-size: 11px;
+  color: gray;
+  font-weight: normal;
+}
+
+.remove{
+  font-size: 14px;
+  color: #2d2d2d;
+  background-color: #e6e6e6;
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+}
+
+.remove:hover{
+  background-color: #2d2d2d;
+  color: #e6e6e6;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+}
+
+
+.kcal{
+  font-size: 14px;
+  color: gray;
+  font-weight: normal;
+}
+
+.buttonBox{
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 10px 0 10px 0
+}
+
+.addButton{
+  width: 40px;
+  height: 40px;
+  border: 0px;
+  font-size: 30px;
+  border-radius: 10px;
+  color: #2d2d2d;
+  background-color: #e6e6e6;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+}
+
+.addButton:not(:disabled):hover{
+  background-color: #2d2d2d;
+  color: #e6e6e6;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+  cursor: pointer;
+}
+
+.addButton:disabled{
+  color: gray;
+}
+
+
+.summaryBox{
+  width: 350px;
+  height: 160px;
+  border: 1px solid #bebebe;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.kcalBox{
+  width: 350px;
+  text-align: center;
+}
+
+.needHeader{
+  font-size: 13px;
+}
+
+.needComp{
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.needGoal{
+  color: #3c2d68;
+}
+
+.progressBar{
+  margin-left: 140px;
+  margin-top: 5px;
+}
+
+.needsBox{
+  width: 350px;
+  height: auto;
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.needs{
+  width: 110px;
+  height: 70px;
+  text-align: center;
+}
+
+.needProgressBar{
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.centerPanel{
+  width: 500px;
+  height: auto;
+}
+
+.spin{
+  margin-top: 40px;
+  font-size: 40px;
+}
+
+.spinWM{
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.nutritionalBox{
+  width: 313px;
+  height: auto;
+  text-align: center;
+  font-size: 11px;
+  display: flex;
+  padding: 5px 10px 0 10px;
+  box-sizing: border-box;
+  color: gray;
+}
+
+.nutrional{
+  width: 33%;
+  text-align: center;
+}
+
+.lowerText{
+  color: #2d2d2d;
+}
