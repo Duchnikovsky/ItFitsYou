@@ -11,8 +11,8 @@ interface Props {
 
 export default function CalculatorResult({results}:Props) {
   const { data:session } = useSession()
-  const [buttonDisabled, setButtonDisabled] = useState(false)
-  const [updated, setUpdated] = useState(false)
+  const [buttonDisabled, setButtonDisabled] = useState<boolean>(false)
+  const [updated, setUpdated] = useState<boolean>(false)
   const router = useRouter()
   
   async function handleAssign(){

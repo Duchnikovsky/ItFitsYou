@@ -27,9 +27,9 @@ function assignDatesToObjects(objects: { day: string }[]): ObjectWithDate[] {
 }
 
 export default function Days(props: any) {
-  const [activeDay, setActiveDay] = useState(10)
+  const [activeDay, setActiveDay] = useState<number>(10)
   const [objects, setObjects] = useState<ObjectWithDate[]>([]);
-  const firstLoad = useRef(true)
+  const firstLoad = useRef<boolean>(true)
 
   function changeDayHandler(day: number) {
     setActiveDay(day)

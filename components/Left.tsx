@@ -35,14 +35,14 @@ interface Meal {
 }
 
 export default function Left() {
-  const [selectedDay, setSelectedDay] = useState(new Date())
-  const [selectedMeal, setSelectedMeal] = useState(10)
-  const [centerVisible, setCenterVisible] = useState(false)
-  const [removeBlocked, setRemoveBlocked] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const [selectedDay, setSelectedDay] = useState<Date>(new Date())
+  const [selectedMeal, setSelectedMeal] = useState<number>(10)
+  const [centerVisible, setCenterVisible] = useState<boolean>(false)
+  const [removeBlocked, setRemoveBlocked] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(true)
   const [values, setValues] = useState<number[]>([0, 0, 0, 0])
   
-  const firstLoad = useRef(true)
+  const firstLoad = useRef<boolean>(true)
 
   const { data: session } = useSession()
 

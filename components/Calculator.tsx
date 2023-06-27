@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import CSS from '../styles/Right.module.css'
 import CalculatorResult from './CalculatorResult';
 
@@ -48,7 +48,7 @@ export default function Calculator() {
     }
   }
 
-  useLayoutEffect(()=>{
+  useEffect(()=>{
     if(firstUpdate.current){
       firstUpdate.current = false
       return

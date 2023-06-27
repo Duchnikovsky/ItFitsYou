@@ -11,7 +11,7 @@ interface PropsTypes{
 
 export default function Summary(props:PropsTypes) {
   const { data: session } = useSession()
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState<boolean>(true)
   const [values, setValues] = useState<number[]>([0,0,0,0])
   const [goals, setGoals] = useState<number[]>([0,0,0,0,0,0,0])
 

@@ -20,9 +20,18 @@ interface DetailsType {
   protein: string,
 }
 
+interface DataTypes {
+  id: string,
+  name: string,
+  kcal: number,
+  carbohydrate: string,
+  fat: string,
+  protein: string,
+}
+
 export default function Center(props: PropsType) {
-  const [value, setValue] = useState('')
-  const [data, setData]: any = useState([])
+  const [value, setValue] = useState<string>('')
+  const [data, setData] = useState<DataTypes[]>([])
   const [details, setDetails] = useState<DetailsType>({
     id: '',
     name: '',
@@ -31,10 +40,10 @@ export default function Center(props: PropsType) {
     fat: '',
     protein: '',
   })
-  const [serving, setServing] = useState(0)
-  const [meal, setMeal] = useState(10)
-  const [loading, setLoading] = useState(false)
-  const [searching, setSearching] = useState(true)
+  const [serving, setServing] = useState<number>(0)
+  const [meal, setMeal] = useState<number>(10)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [searching, setSearching] = useState<boolean>(true)
   const { data: session } = useSession()
 
   useEffect(() => {
@@ -56,14 +65,14 @@ export default function Center(props: PropsType) {
       })
     })
     const result = await res.json()
-    setData(result)
+    setData(result.food)
     if (res) {
       setLoading(false)
     }
   }
 
   useEffect(() => {
-    if (value.length > 2) {
+    if (value.length > 1) {
       setLoading(true)
       fetchList()
     }
@@ -115,17 +124,21 @@ export default function Center(props: PropsType) {
             <button className={CSS.clearButton} onClick={() => props.closePanel()}>CLOSE</button>
           </div>
           <div className={CSS.productsDiv}>
-            {(loading || data.length < 1 || value.length < 3) ? <div className={CSS.spinDiv}><FontAwesomeIcon icon={faRotate} spin /></div> :
-              <>
-                {
-                  data.food.map((e: any, index: any) => (
-                    <div className={CSS.productRow} key={index} onClick={() => showDetails(e)}>
-                      <div className={CSS.productName}>{e.name}</div>
-                      <div className={CSS.kcalin100}>{e.kcal} kcal in 100g</div>
-                    </div>
-                  ))
-                }
-              </>}
+            {(value.length < 2 || data.length === 0) ? <>
+              {(value.length > 1 && data.length === 0) && <div className={CSS.productNoti}>Could not find this product</div>}
+            </> : <>
+              {(loading || data.length < 1 || value.length < 2) ? <div className={CSS.spinDiv}><FontAwesomeIcon icon={faRotate} spin /></div> :
+                <>
+                  {
+                    data.map((e: DataTypes, index: number) => (
+                      <div className={CSS.productRow} key={index} onClick={() => showDetails(e)}>
+                        <div className={CSS.productName}>{e.name}</div>
+                        <div className={CSS.kcalin100}>{e.kcal} kcal in 100g</div>
+                      </div>
+                    ))
+                  }
+                </>}
+            </>}
           </div>
         </> : <>
           {(details.kcal !== 0) ? <div className={CSS.productDetailsDiv}>

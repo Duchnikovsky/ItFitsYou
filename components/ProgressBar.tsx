@@ -7,7 +7,7 @@ type PropsTypes = {
 }
 
 export default function ProgressBar({value, maxValue}:PropsTypes) {
-  const [progress, setProgress] = useState(0)
+  const [progress, setProgress] = useState<number>(0)
 
   useEffect(() => {
     setProgress((value/maxValue) * 100)
