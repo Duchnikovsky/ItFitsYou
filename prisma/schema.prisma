@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String  @id @default(uuid())
+  email    String  @unique
+  password String
+  Meals    Meals[]
+  Needs    Needs[]
+}
+
+model Needs {
+  user         User    @relation(fields: [userId], references: [id])
+  userId       String  @id
+  kcal         Int?
+  carbohydrate String?
+  protein      String?
+  fat          String?
+}
+
+model Food {
+  id           String  @id @default(uuid())
+  name         String
+  kcal         Int
+  carbohydrate String
+  protein      String
+  fat          String
+  Meals        Meals[]
+}
+
+model Meals {
+  id       String   @id @default(uuid())
+  user     User     @relation(fields: [userId], references: [id])
+  userId   String
+  category Int
+  food     Food     @relation(fields: [foodId], references: [id])
+  foodId   String
+  serving  Int
+  day      DateTime
+}
