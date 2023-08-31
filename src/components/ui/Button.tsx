@@ -1,5 +1,5 @@
 import React from "react";
-import { Loader2 } from "lucide-react";
+import { Circle, Loader2 } from "lucide-react";
 import CSS from "@/styles/ui.module.css";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -47,4 +47,28 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 
-export { Button };
+interface AddButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  isLoading: boolean;
+  isDisabled: boolean;
+  margin?: string | 0;
+}
+
+const AddButton = React.forwardRef<HTMLButtonElement, AddButtonProps>(
+  ({ children, isLoading, isDisabled, margin, ...props }, ref) => {
+    return (
+      <button
+        className={CSS.addButton}
+        style={{
+          margin: margin,
+        }}
+        ref={ref}
+        disabled={isDisabled}
+        {...props}
+      >
+        {isLoading ? <><Circle className={CSS.loaderTrail} /><Loader2 className={CSS.loader} /> </>: <>{children}</>}
+      </button>
+    );
+  }
+);
+
+export { Button, AddButton };

@@ -1,0 +1,42 @@
+.days{
+  width: 350px;
+  height: 30px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.day{
+  width: 50px;
+  text-align: center;
+  padding-top: 5px;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+}
+
+.day:hover{
+  background-color: #2d2d2d;
+  color: white;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+  cursor: pointer;
+}
+
+.dayActive{
+  width: 50px;
+  text-align: center;
+  padding-top: 5px;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+  background-color: #2d2d2d;
+  color: white;
+}
+
+@media(max-width:768px){
+  .days{
+    margin: auto;
+    margin-bottom: 10px;
+  }
+}

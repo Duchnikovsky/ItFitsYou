@@ -154,7 +154,7 @@ export default function SignIn() {
         </Button>
       </form>
       <div className={CSS.redirection}>
-        Don't have account?{" "}
+        Don&apos;t have account?{" "}
         <b className={CSS.hover}>
           <Link href="/signUp">sign up</Link>
         </b>
