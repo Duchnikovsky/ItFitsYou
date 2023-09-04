@@ -42,5 +42,5 @@ model Meals {
   food     Food     @relation(fields: [foodId], references: [id])
   foodId   String
   serving  Int
-  day      DateTime
+  day      DateTime @default(now())
 }

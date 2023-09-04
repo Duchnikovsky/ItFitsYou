@@ -20,6 +20,7 @@ export default function Meals({ day }: MealsProps) {
     { id: 4, name: "SNACKS", food: [], kcalCount: 0 },
   ]);
   const [values, setValues] = useState<number[]>([0, 0, 0, 0]);
+  
   const { refetch, isLoading, isRefetching } = useQuery({
     queryKey: ["meals-query"],
     queryFn: async () => {
@@ -91,7 +92,7 @@ export default function Meals({ day }: MealsProps) {
   return (
     <div className={CSS.main}>
       {meals.map((meal) => (
-        <Meal meal={meal} isLoading={isRefetching || isLoading} key={meal.id} />
+        <Meal meal={meal} isLoading={isRefetching || isLoading} key={meal.id} refetch={() => refetch()}/>
       ))}
     </div>
   );

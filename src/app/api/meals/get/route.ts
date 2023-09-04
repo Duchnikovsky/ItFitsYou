@@ -26,8 +26,8 @@ export async function GET(req: Request) {
         userId: session.user.id,
         day: {
           gte: newDate,
-          lt: new Date(new Date(newDate).getTime() + 24 * 60 * 60 * 1000)
-        }
+          lt: new Date(new Date(newDate).getTime() + 24 * 60 * 60 * 1000),
+        },
       },
       include: {
         food: true,

@@ -71,4 +71,6 @@ const AddButton = React.forwardRef<HTMLButtonElement, AddButtonProps>(
   }
 );
 
+AddButton.displayName = "AddButton";
+
 export { Button, AddButton };
