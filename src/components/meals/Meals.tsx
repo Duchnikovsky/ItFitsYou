@@ -1,17 +1,15 @@
 "use client";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import CSS from "@/styles/meals.module.css";
 import { useQuery } from "@tanstack/react-query";
 import debounce from "lodash.debounce";
 import axios from "axios";
 import { MealTypes, MealsTypes } from "@/lib/validators/meals";
 import Meal from "@/components/meals/Meal";
+import { DayContext } from "@/components/LeftPanel";
 
-interface MealsProps {
-  day: Date;
-}
 
-export default function Meals({ day }: MealsProps) {
+export default function Meals() {
   const [meals, setMeals] = useState<MealTypes[]>([
     { id: 0, name: "BREAKFAST", food: [], kcalCount: 0 },
     { id: 1, name: "II BREAKFAST", food: [], kcalCount: 0 },
@@ -20,7 +18,9 @@ export default function Meals({ day }: MealsProps) {
     { id: 4, name: "SNACKS", food: [], kcalCount: 0 },
   ]);
   const [values, setValues] = useState<number[]>([0, 0, 0, 0]);
-  
+
+  const day = useContext(DayContext)
+
   const { refetch, isLoading, isRefetching } = useQuery({
     queryKey: ["meals-query"],
     queryFn: async () => {
@@ -92,7 +92,12 @@ export default function Meals({ day }: MealsProps) {
   return (
     <div className={CSS.main}>
       {meals.map((meal) => (
-        <Meal meal={meal} isLoading={isRefetching || isLoading} key={meal.id} refetch={() => refetch()}/>
+        <Meal
+          meal={meal}
+          isLoading={isRefetching || isLoading}
+          key={meal.id}
+          refetch={() => refetch()}
+        />
       ))}
     </div>
   );

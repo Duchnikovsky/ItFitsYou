@@ -1,4 +1,4 @@
-.main{
+.main {
   width: 350px;
   height: 32rem;
   overflow-y: scroll;
@@ -19,12 +19,12 @@
   background: #c8c8c84d;
 }
 
-.main::-webkit-scrollbar-thumb:hover{
+.main::-webkit-scrollbar-thumb:hover {
   background: #4040404d;
 }
 
 
-.mealDiv{
+.mealDiv {
   width: 100%;
   border: 1px solid #bebebe;
   height: auto;
@@ -35,24 +35,24 @@
   font-weight: 600;
 }
 
-.mealDiv:last-child{
+.mealDiv:last-child {
   margin-bottom: 0;
 }
 
-.mealHeader{
+.mealHeader {
   width: 100%;
   height: 2rem;
   display: flex;
   justify-content: space-between;
 }
 
-.kcalCount{
+.kcalCount {
   font-size: 12px;
   color: gray;
   font-weight: normal;
 }
 
-.buttonDiv{
+.buttonDiv {
   width: 100%;
   height: 2.5rem;
   display: flex;
@@ -60,7 +60,7 @@
   align-items: center;
 }
 
-.dish{
+.dish {
   width: 100%;
   height: 4.2rem;
   border: 1px solid #bebebe;
@@ -71,19 +71,19 @@
   font-weight: normal;
 }
 
-.dishHeader{
+.dishHeader {
   width: 100%;
   height: 1.5rem;
   display: flex;
   justify-content: space-between;
 }
 
-.dishKcal{
+.dishKcal {
   font-size: 12px;
   color: gray;
 }
 
-.dishRemove{
+.dishRemove {
   width: 1.1rem;
   height: 1.1rem;
   font-size: 12px;
@@ -99,17 +99,24 @@
   transition-timing-function: linear;
 }
 
-.dishRemove:hover{
+.dishRemove:hover {
   background-color: #2d2d2d;
   color: #e6e6e6;
   cursor: pointer;
-  
+
   transition-property: all;
   transition-duration: 200ms;
   transition-timing-function: linear;
 }
 
-.dishContent{
+.dishRemove:hover>.loader {
+  color: #e6e6e6;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+}
+
+.dishContent {
   width: 100%;
   height: 2.3rem;
   display: grid;
@@ -117,7 +124,7 @@
   box-sizing: border-box;
 }
 
-.dishNutrient{
+.dishNutrient {
   width: 100%;
   height: 2.3rem;
   display: flex;
@@ -127,21 +134,41 @@
   font-size: 11px;
 }
 
-.dishNutrientKcal{
+.dishNutrientKcal {
   color: gray;
   font-size: 11px;
 }
 
-@media(max-width:768px){
-  .main{
+.loader {
+  animation: spin 1s linear infinite;
+  color: black;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media(max-width:768px) {
+  .main {
     margin: auto;
   }
-  .dishRemove{
-    font-size: 10px;
+
+  .dishRemove {
+    font-size: 12px;
     text-align: center;
     display: block;
-    line-height: 1.2rem;
+    line-height: 1.1rem;
     padding-right: 0.05rem;
     box-sizing: border-box;
+  }
+
+  .loader {
+    margin-top: 0.1rem;
   }
 }

@@ -12,8 +12,8 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json();
-    
-    const { id, category, serving } = MealValidator.parse(body);
+
+    const { id, category, serving, day } = MealValidator.parse(body);
 
     if (typeof serving !== "number" || serving < 1) {
       return new Response("Serving size is incorrect", { status: 422 });
@@ -35,6 +35,7 @@ export async function POST(req: Request) {
         category: category,
         foodId: id,
         serving: serving,
+        day: day,
       },
     });
 

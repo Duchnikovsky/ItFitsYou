@@ -9,7 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { FoodTypes, MealTypes } from "@/lib/validators/meals";
 import SearchResult from "@/components/modal/SearchResult";
-import FoodDetails from "@/components/FoodDetails";
+import FoodDetails from "@/components/modal/FoodDetails";
 
 interface CreatorModalProps {
   category: string;

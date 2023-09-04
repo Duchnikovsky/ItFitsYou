@@ -21,7 +21,7 @@ export default function Meal({ meal, isLoading, refetch }: MealProps) {
         <div className={CSS.kcalCount}>{meal.kcalCount} kcal</div>
       </div>
       {meal.food.map((food) => (
-        <Dish dish={food} key={food.id} />
+        <Dish dish={food} key={food.id} refetch={() => refetch()} />
       ))}
       <div className={CSS.buttonDiv}>
         <AddButton

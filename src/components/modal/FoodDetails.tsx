@@ -5,10 +5,11 @@ import CSS from "@/styles/details.module.css";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { Calculator, Circle, Loader2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Input } from "@/components/ui/Input";
 import { AddButton } from "@/components/ui/Button";
 import { toast } from "react-toastify";
+import { DayContext } from "../LeftPanel";
 
 interface FoodDetailsProps {
   foodId: string;
@@ -24,6 +25,8 @@ export default function FoodDetails({
   categoryId,
 }: FoodDetailsProps) {
   const [serving, setServing] = useState<number | undefined>();
+
+  const day = useContext(DayContext);
 
   const { refetch, data, isLoading, isFetched } = useQuery({
     queryKey: ["food-details-query"],
@@ -43,10 +46,13 @@ export default function FoodDetails({
 
   const { mutate: addMeal, isLoading: isAddLoading } = useMutation({
     mutationFn: async () => {
+      const newDate = new Date(day)
+      newDate.setHours(newDate.getHours()+2)
       const payload: MealAddRequest = {
         id: foodId,
         category: categoryId,
         serving: serving,
+        day: newDate,
       };
 
       const { data } = await axios.post(`/api/food/post`, payload);

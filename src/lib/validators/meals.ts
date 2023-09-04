@@ -42,6 +42,7 @@ export const MealValidator = z.object({
   serving: z
     .number()
     .or(z.undefined()),
+  day: z.coerce.date()
 });
 
 export type MealAddRequest = z.infer<typeof MealValidator>;
