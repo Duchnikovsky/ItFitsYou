@@ -26,7 +26,7 @@ export default function Meal({ meal, isLoading, refetch }: MealProps) {
       <div className={CSS.buttonDiv}>
         <AddButton
           isDisabled={false}
-          isLoading={isLoading}
+          isLoading={false}
           onClick={() => toggleModal(true)}
         >
           +

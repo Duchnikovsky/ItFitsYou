@@ -46,8 +46,8 @@ export default function FoodDetails({
 
   const { mutate: addMeal, isLoading: isAddLoading } = useMutation({
     mutationFn: async () => {
-      const newDate = new Date(day)
-      newDate.setHours(newDate.getHours()+2)
+      const newDate = new Date(day);
+      newDate.setHours(newDate.getHours() + 2);
       const payload: MealAddRequest = {
         id: foodId,
         category: categoryId,
@@ -102,10 +102,16 @@ export default function FoodDetails({
   if (isLoading || !isFetched)
     return (
       <div>
-        <div className={CREATORCSS.upperText}>
+        <div
+          className={CREATORCSS.upperText}
+          onClick={(e) => e.stopPropagation()}
+        >
           Add a meal <b>{category}</b> category
         </div>
-        <div className={CREATORCSS.loaderArea}>
+        <div
+          className={CREATORCSS.loaderArea}
+          onClick={(e) => e.stopPropagation()}
+        >
           <Circle className={CREATORCSS.loaderTrail} size={34} />
           <Loader2 className={CREATORCSS.loader} size={38} />
         </div>
@@ -114,21 +120,29 @@ export default function FoodDetails({
 
   return (
     <div style={{ height: "100%" }}>
-      <div className={CREATORCSS.upperText}>
+      <div
+        className={CREATORCSS.upperText}
+        onClick={(e) => e.stopPropagation()}
+      >
         Add a meal to <b>{category}</b> category
       </div>
       <div className={CSS.main}>
-        <div className={CSS.name}>{data?.name}</div>
-        <div className={CSS.nutrientsPer100}>
+        <div className={CSS.name} onClick={(e) => e.stopPropagation()}>
+          {data?.name}
+        </div>
+        <div
+          className={CSS.nutrientsPer100}
+          onClick={(e) => e.stopPropagation()}
+        >
           Nutritional values for <b>100g</b> of the product:
         </div>
-        <div className={CSS.kcalPer100}>
+        <div className={CSS.kcalPer100} onClick={(e) => e.stopPropagation()}>
           <div>
             <b>{data?.kcal}</b>
           </div>
           <div className={CSS.lowerText}>CALORIES</div>
         </div>
-        <div className={CSS.nutrientsArea}>
+        <div className={CSS.nutrientsArea} onClick={(e) => e.stopPropagation()}>
           <div className={CSS.sideNutrientArea}>
             <div className={CSS.nutrionName}>
               <b>{data?.carbohydrate}</b>
@@ -148,7 +162,9 @@ export default function FoodDetails({
             <div className={CSS.lowerText}>PROTEIN</div>
           </div>
         </div>
-        <div className={CSS.servingSize}>Enter serving size(in grams)</div>
+        <div className={CSS.servingSize} onClick={(e) => e.stopPropagation()}>
+          Enter serving size(in grams)
+        </div>
         <Input
           width="6rem"
           height="2rem"
@@ -164,6 +180,7 @@ export default function FoodDetails({
               setServing(Number(e.target.value));
             }
           }}
+          onClick={(e) => e.stopPropagation()}
           icon={
             <Calculator
               stroke="black"
@@ -175,7 +192,7 @@ export default function FoodDetails({
           isDisabled={false}
           margin={"auto"}
         />
-        <div className={CSS.servingResult}>
+        <div className={CSS.servingResult} onClick={(e) => e.stopPropagation()}>
           <div>
             {serving !== undefined ? (
               <b>
@@ -191,7 +208,10 @@ export default function FoodDetails({
           isDisabled={false}
           isLoading={isAddLoading}
           margin={"auto"}
-          onClick={() => addMeal()}
+          onClick={(e) => {
+            addMeal();
+            e.stopPropagation();
+          }}
         >
           +
         </AddButton>

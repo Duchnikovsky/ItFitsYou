@@ -1,7 +1,7 @@
 "use client";
 import MODAL from "@/styles/modal.module.css";
 import CSS from "@/styles/creator.module.css";
-import { Input } from "../ui/Input";
+import { Input } from "@/components/ui/Input";
 import { Search } from "lucide-react";
 import { useCallback, useState } from "react";
 import debounce from "lodash.debounce";
@@ -48,13 +48,13 @@ export default function CreatorModal({
   const food = data?.flatMap((food: MealTypes) => food) || [] || [];
 
   return (
-    <div className={MODAL.background}>
+    <div className={MODAL.background} onClick={() => toggleModal(false)}>
       {selected === undefined ? (
         <div className={CSS.main}>
-          <div className={CSS.upperText}>
+          <div className={CSS.upperText} onClick={(e) => e.stopPropagation()}>
             Add a meal to <b>{category}</b> category
           </div>
-          <div className={CSS.searchBar}>
+          <div className={CSS.searchBar} onClick={(e) => e.stopPropagation()}>
             <Input
               type={"text"}
               maxLength={16}
@@ -81,7 +81,10 @@ export default function CreatorModal({
             />
           </div>
           {food.length > 0 && (
-            <div className={CSS.searchResults}>
+            <div
+              className={CSS.searchResults}
+              onClick={(e) => e.stopPropagation()}
+            >
               {food.map((food: FoodTypes) => (
                 <div
                   className={CSS.foodContainer}
