@@ -7,6 +7,7 @@ import axios from "axios";
 import { MealTypes, MealsTypes } from "@/lib/validators/meals";
 import Meal from "@/components/meals/Meal";
 import { DayContext } from "@/components/LeftPanel";
+import Summary from "@/components/Summary";
 
 
 export default function Meals() {
@@ -68,6 +69,7 @@ export default function Meals() {
           });
         }
       });
+      setValues(newValues)
     },
     enabled: false,
   });
@@ -90,6 +92,7 @@ export default function Meals() {
   }, [day]);
 
   return (
+    <>
     <div className={CSS.main}>
       {meals.map((meal) => (
         <Meal
@@ -100,5 +103,9 @@ export default function Meals() {
         />
       ))}
     </div>
+    <div className={CSS.summary}>
+      <Summary values={values}/>
+    </div>
+    </>
   );
 }

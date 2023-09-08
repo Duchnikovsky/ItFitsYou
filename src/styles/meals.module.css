@@ -25,6 +25,13 @@
   background: #4040404d;
 }
 
+.summary{
+  width: 350px;
+  height: 8.5rem;
+  border: 1px solid #bebebe;
+  margin-top: 0.5rem;
+}
+
 
 .mealDiv {
   width: 100%;
