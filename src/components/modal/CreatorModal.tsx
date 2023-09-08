@@ -104,6 +104,7 @@ export default function CreatorModal({
             category={category}
             categoryId={meal.id}
             toggleModal={(bool: boolean) => toggleModal(bool)}
+            undo={() => setSelected(undefined)}
           />
         </div>
       )}

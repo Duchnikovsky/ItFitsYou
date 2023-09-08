@@ -4,7 +4,7 @@ import CREATORCSS from "@/styles/creator.module.css";
 import CSS from "@/styles/details.module.css";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
-import { Calculator, Circle, Loader2 } from "lucide-react";
+import { Calculator, Circle, Loader2, Undo2 } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import { Input } from "@/components/ui/Input";
 import { AddButton } from "@/components/ui/Button";
@@ -16,6 +16,7 @@ interface FoodDetailsProps {
   category: string;
   toggleModal: (bool: boolean) => void;
   categoryId: number;
+  undo: () => void;
 }
 
 export default function FoodDetails({
@@ -23,6 +24,7 @@ export default function FoodDetails({
   category,
   toggleModal,
   categoryId,
+  undo,
 }: FoodDetailsProps) {
   const [serving, setServing] = useState<number | undefined>();
 
@@ -214,6 +216,17 @@ export default function FoodDetails({
           }}
         >
           +
+        </AddButton>
+        <AddButton
+          isDisabled={false}
+          isLoading={false}
+          margin={"1rem auto 0"}
+          onClick={(e) => {
+            undo()
+            e.stopPropagation();
+          }}
+        >
+          <Undo2 />
         </AddButton>
       </div>
     </div>
