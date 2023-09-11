@@ -185,4 +185,7 @@
   .loader {
     margin-top: 0.1rem;
   }
+  .summary{
+    margin: 0.5rem auto 0 auto;
+  }
 }

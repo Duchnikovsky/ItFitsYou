@@ -35,4 +35,36 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
 Input.displayName = "Input";
 
-export { Input };
+interface Input2Props extends React.InputHTMLAttributes<HTMLInputElement> {
+  isDisabled: boolean;
+  width: string;
+  height: string;
+  fontSize: string;
+  margin?: string | 0;
+}
+
+const Input2 = React.forwardRef<HTMLInputElement, Input2Props>(
+  ({ isDisabled, width, height, fontSize, margin, ...props }, ref) => {
+    return (
+      <div
+        className={CSS.inputContainer}
+        style={{ width: width, height: height, margin: margin }}
+      >
+        <input
+          className={CSS.input}
+          style={{
+            fontSize: fontSize,
+            margin: margin,
+          }}
+          ref={ref}
+          disabled={isDisabled}
+          {...props}
+        />
+      </div>
+    );
+  }
+);
+
+Input2.displayName = "Input2";
+
+export { Input, Input2 };
