@@ -5,8 +5,13 @@ import { useState } from "react";
 import Genders from "@/components/calculator/Genders";
 import { Select } from "@/components/ui/Select";
 import { Button } from "@/components/ui/Button";
+import { CalculatorRequest } from "@/lib/validators/calculator";
 
-export default function CalculatorForm() {
+interface CalculatorFormProps {
+  calculate: (payload: CalculatorRequest) => void;
+}
+
+export default function CalculatorForm({ calculate }: CalculatorFormProps) {
   const [gender, setGender] = useState<number>();
   const [values, setValues] = useState({
     age: "",
@@ -17,7 +22,20 @@ export default function CalculatorForm() {
   });
 
   return (
-    <form className={CSS.form}>
+    <form
+      className={CSS.form}
+      onSubmit={(e) => {
+        e.preventDefault();
+        calculate({
+          gender: gender || 0,
+          age: parseInt(values["age"]),
+          height: parseInt(values["height"]),
+          weight: parseInt(values["weight"]),
+          activity: parseInt(values["activity"]),
+          goal: parseInt(values["goal"]),
+        });
+      }}
+    >
       <div className={CSS.upperInputs}>
         <div className={CSS.inputs}>
           <div className={CSS.inputArea}>
@@ -31,6 +49,7 @@ export default function CalculatorForm() {
               fontSize="16px"
               isDisabled={false}
               value={values["age"]}
+              required
               onChange={(e) =>
                 setValues({ ...values, ["age"]: e.target.value })
               }
@@ -46,6 +65,7 @@ export default function CalculatorForm() {
               height="2.25rem"
               fontSize="16px"
               isDisabled={false}
+              required
               value={values["height"]}
               onChange={(e) =>
                 setValues({ ...values, ["height"]: e.target.value })
@@ -63,6 +83,7 @@ export default function CalculatorForm() {
               fontSize="16px"
               isDisabled={false}
               value={values["weight"]}
+              required
               onChange={(e) =>
                 setValues({ ...values, ["weight"]: e.target.value })
               }
@@ -114,7 +135,8 @@ export default function CalculatorForm() {
         fontSize="20px"
         isDisabled={false}
         isLoading={false}
-        margin={'1rem 0 0 0'}
+        margin={"1rem 0 0 0"}
+        type="submit"
       >
         Calculate
       </Button>
