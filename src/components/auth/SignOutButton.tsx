@@ -12,7 +12,7 @@ export default function SignOutButton() {
       height="2.25rem"
       type="button"
       onClick={() => signOut()}
-      margin={'2rem auto 0 auto'}
+      margin={'1rem auto 0 auto'}
     >
       Sign Out
     </Button>
