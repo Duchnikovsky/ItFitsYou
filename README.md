@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# It Fits You
+
+## Description
+**It Fits You** is Next.js application that allows users to control their diet by recording the meals they eat. The app has a database of products with their calorie counts and allows the user to easily control the calories consumed. The app also has a built-in caloric needs calculator.
+
+This application is deployed and accessible at [it-fits-you.vercel.app](https://it-fits-you.vercel.app)
+
+
+## Application preview
+
+<img src="https://utfs.io/f/21fd78e8-0b38-49e6-96b7-10f20c1cad05-8e2yw9.com).gif" />
+<img src="https://utfs.io/f/37124fdc-3b99-4b6f-845f-563104db3bb2-2g29.png" />
+<img src="https://utfs.io/f/f6bfa5c4-f70a-41f2-b0b9-22b73ec5d117-2g2a.png" />
+<img src="https://utfs.io/f/1fd2ffec-d96a-4fff-b8a2-9beeb83703ab-2g2b.png" />
+
+## Features
+
+- **User Authentication**: Secure login with Credentials using NextAuth.
+- **Caloric calculator**: Allows you to quickly calculate caloric requirements due to the body parameters provided.
+- **Counting calories**: Allows you to write down the calories consumed that day to efficiently stick to your diet, if you have previously used a calorie calculator it additionally shows the progression of macronutrients consumed that day.
+- **Search Functionality**: Search for the food you have eaten among the hundreds of meals in the database.
+- **Responsive Design**: Fully responsive web design that adapts to various devices.
+
+## Technologies
+- **Next.js**: The React framework for production.
+- **TypeScript**:A typed superset of JavaScript that compiles to plain JavaScript.
+- **CSS**: A stylesheet language used for describing the presentation of a document written in HTML.
+- **Prisma**: Next-generation ORM for Node.js and TypeScript.
+- **React Query**: Handles fetching, caching, synchronizing, and updating server state.
+- **NextAuth**: Simplifies building secure authentication systems.
+- **React Toastify**: Allows you to add notifications to your app with ease.
+- **Axios**: Promise based HTTP client for the browser and node.js
+- **Zod**: A TypeScript-first schema declaration and validation library.
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running follow these simple steps.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+### Prerequisites
+
+- Node.js
+- npm
+```sh
+npm install npm@latest -g
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repo
+```sh
+git clone https://github.com/Duchnikovsky/ItFitsYou.git
+```
+2. Install NPM packages
+```sh
+npm install
+```
+3. Start the development server
+```sh
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## License
+This project is available under the MIT license.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
