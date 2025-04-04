@@ -1,0 +1,27 @@
+.input_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+
+  .input {
+    background-color: transparent;
+    outline: none;
+    border: 1px solid var(--neutral-500);
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: "Inter", sans-serif;
+    padding: 12px;
+
+    &::placeholder {
+      color: var(--neutral-700);
+    }
+  }
+
+  .label {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--neutral-900);
+  }
+}

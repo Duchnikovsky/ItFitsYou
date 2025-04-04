@@ -4,7 +4,7 @@ import cs from "classnames";
 import style from "./Button.module.css";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant, children, loading, ...props }, ref) => {
+  ({ variant = "variant_1", children, loading, ...props }, ref) => {
     const { disabled } = props;
 
     return (
