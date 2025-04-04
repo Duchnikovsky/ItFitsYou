@@ -1,0 +1,52 @@
+.button {
+  position: relative;
+  background-color: var(--primary-700);
+  color: var(--neutral-100);
+  padding: 8px 20px;
+  border: 0;
+  outline: none;
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: var(--primary-800);
+  }
+
+  &.disabled {
+    background-color: var(--neutral-600);
+    color: var(--neutral-100);
+    cursor: not-allowed;
+  }
+
+  &.loading {
+    color: rgba(0, 0, 0, 0);
+    background-color: var(--primary-800);
+
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      width: 32px;
+      height: 32px;
+      background-color: var(--neutral-100);
+      mask-image: url("../../../assets/icons/icon-spinner.svg");
+      mask-size: cover;
+      mask-repeat: no-repeat;
+      --webkit-mask-image: url("../../../assets/icons/icon-spinner.svg");
+      --webkit-mask-size: cover;
+      --webkit-mask-repeat: no-repeat;
+    }
+  }
+}
+
+:global(.variant_2).button {
+  width: 100%;
+}
