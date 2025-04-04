@@ -1,0 +1,29 @@
+.checkbox_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--neutral-800);
+  font-size: 14px;
+  line-height: 20px;
+
+  .checkbox {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    background-color: var(--neutral-100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--neutral-800);
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+
+    &.checked {
+        background-color: var(--primary-500);
+    }
+  }
+
+  .checkbox, .label {
+    cursor: pointer;
+  }
+}
