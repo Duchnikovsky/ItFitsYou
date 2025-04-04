@@ -14,11 +14,11 @@ export default async function Home() {
 
   return (
     <div className={CSS.main}>
-      <Header />
+      {/* <Header />
       <div className={CSS.body}>
         <LeftPanel />
         <RightPanel />
-      </div>
+      </div> */}
     </div>
   );
 }

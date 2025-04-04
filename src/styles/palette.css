@@ -1,0 +1,23 @@
+:root {
+  /* Neutral colors */
+  --neutral-100: #ffffff;
+  --neutral-200: #f9fafb;
+  --neutral-300: #f3f4f6;
+  --neutral-400: #e5e7eb;
+  --neutral-500: #d1d5db;
+  --neutral-600: #9ca3af;
+  --neutral-700: #6b7280;
+  --neutral-800: #4b5563;
+  --neutral-900: #1f2937;
+
+  /* Primary colors */
+  --primary-100: #eae8ff;
+  --primary-200: #c7c2ff;
+  --primary-300: #a49bff;
+  --primary-400: #8074ff;
+  --primary-500: #5c4dff;
+  --primary-600: #4825ff;
+  --primary-700: #3a1ed6;
+  --primary-800: #2d179e;
+  --primary-900: #111827;
+}
