@@ -19,7 +19,10 @@ export default function Providers({ children }: LayoutProps) {
                 {children}
                 <ToastContainer
                     position="bottom-right"
-                    theme="dark"
+                    theme="colored"
+                    toastStyle={{
+                        backgroundColor: "var(--primary-700)",
+                    }}
                     autoClose={3000}
                     hideProgressBar={false}
                     closeOnClick={true}
