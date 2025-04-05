@@ -16,31 +16,42 @@ model User {
 }
 
 model Needs {
-  user         User    @relation(fields: [userId], references: [id])
-  userId       String  @id
+  id           String @id @default(uuid())
+  user         User   @relation(fields: [userId], references: [id])
+  userId       String
   kcal         Int?
-  carbohydrate String?
-  protein      String?
-  fat          String?
+  carbohydrate Float?
+  protein      Float?
+  fat          Float?
 }
 
 model Food {
   id           String  @id @default(uuid())
   name         String
   kcal         Int
-  carbohydrate String
-  protein      String
-  fat          String
+  carbohydrate Float
+  protein      Float
+  fat          Float
   Meals        Meals[]
 }
 
+enum MealCategory {
+  BREAKFAST
+  SECOND_BREAKFAST
+  LUNCH
+  DINNER
+  SNACKS
+}
+
 model Meals {
-  id       String   @id @default(uuid())
-  user     User     @relation(fields: [userId], references: [id])
+  id       String       @id @default(uuid())
+  user     User         @relation(fields: [userId], references: [id])
   userId   String
-  category Int
-  food     Food     @relation(fields: [foodId], references: [id])
+  category MealCategory
+  food     Food         @relation(fields: [foodId], references: [id])
   foodId   String
   serving  Int
-  day      DateTime @default(now())
+  day      DateTime     @default(now())
+
+  @@index([userId, day])
 }
