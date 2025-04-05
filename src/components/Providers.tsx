@@ -7,18 +7,25 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 interface LayoutProps {
-  children: ReactNode;
+    children: ReactNode;
 }
 
 const queryClient = new QueryClient();
 
 export default function Providers({ children }: LayoutProps) {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <SessionProvider>
-        {children}
-        <ToastContainer />
-      </SessionProvider>
-    </QueryClientProvider>
-  );
+    return (
+        <QueryClientProvider client={queryClient}>
+            <SessionProvider>
+                {children}
+                <ToastContainer
+                    position="bottom-right"
+                    theme="dark"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    closeOnClick={true}
+                    pauseOnHover={true}
+                />
+            </SessionProvider>
+        </QueryClientProvider>
+    );
 }
