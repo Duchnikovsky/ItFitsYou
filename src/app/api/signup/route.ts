@@ -4,40 +4,63 @@ import { z } from "zod";
 import bcrypt from "bcrypt";
 
 export async function POST(req: Request) {
-  try {
-    const body = await req.json();
+    try {
+        const body = await req.json();
 
-    const { email, password, rep_password } = SignUpValidator.parse(body);
+        const { email, password } = SignUpValidator.parse(body);
 
-    if (password !== rep_password) {
-      return new Response("Passwords does not match", { status: 400 });
+        const isUser = await db.user.findUnique({
+            where: {
+                email,
+            },
+        });
+
+        if (isUser) {
+            return new Response(
+                JSON.stringify({ message: "Email already in use" }),
+                {
+                    status: 400,
+                    headers: { "Content-Type": "application/json" },
+                }
+            );
+        }
+
+        const hashedPass = await bcrypt.hash(password, 10);
+
+        await db.user.create({
+            data: {
+                email: email,
+                password: hashedPass,
+            },
+        });
+
+        return new Response(
+            JSON.stringify({
+                message:
+                    "Welcome! Your account has been created. Please sign in to continue.",
+            }),
+            {
+                status: 201,
+                headers: { "Content-Type": "application/json" },
+            }
+        );
+    } catch (error) {
+        if (error instanceof z.ZodError) {
+            return new Response(
+                JSON.stringify({ message: error.errors[0].message }),
+                {
+                    status: 422,
+                    headers: { "Content-Type": "application/json" },
+                }
+            );
+        }
+
+        return new Response(
+            JSON.stringify({ message: "Server error. Try again later." }),
+            {
+                status: 500,
+                headers: { "Content-Type": "application/json" },
+            }
+        );
     }
-
-    const isUser = await db.user.findFirst({
-      where: {
-        email: email,
-      },
-    });
-
-    if (isUser) {
-      return new Response("This email is already taken", { status: 409 });
-    }
-
-    const hashedPass = await bcrypt.hash(password, 10);
-
-    const user = await db.user.create({
-      data: {
-        email: email,
-        password: hashedPass,
-      },
-    });
-
-    return new Response("OK");
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      return new Response(error.errors[0].message, { status: 422 });
-    }
-
-    return new Response("Could not sign up, try again later", { status: 500 });
-  }
 }
