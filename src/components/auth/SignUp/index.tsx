@@ -58,8 +58,13 @@ const SignIn = () => {
                             onClick={() => setChecked((prev) => !prev)}
                         >
                             I agree to the{" "}
-                            <Link href="/terms">Terms of Service</Link> and{" "}
-                            <Link href="/privacy">Privacy Policy</Link>
+                            <Link href="/privacy-and-terms#Terms">
+                                Terms of Service
+                            </Link>{" "}
+                            and{" "}
+                            <Link href="/privacy-and-terms#Privacy">
+                                Privacy Policy
+                            </Link>
                         </Checkbox>
                     </div>
                     <Button type="submit" loading={loading}>
