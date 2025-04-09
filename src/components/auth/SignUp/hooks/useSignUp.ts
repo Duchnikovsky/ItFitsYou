@@ -24,7 +24,7 @@ const useSignUp = () => {
         },
         onError: (err) => {
             if (err instanceof AxiosError) {
-                return toast.error(err.response?.data);
+                return toast.error(err.response?.data.message);
             }
             return toast.error("Something went wrong. Please try again");
         },
