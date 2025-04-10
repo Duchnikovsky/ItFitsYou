@@ -34,8 +34,8 @@ const SignIn = () => {
                 >
                     {SignUpInputs.map((input) => (
                         <div key={input.label} className={style.input_wrapper}>
-                            <label>{input.label}</label>
                             <Input
+                                label={input.label}
                                 type={input.type}
                                 name={input.label}
                                 placeholder={input.placeholder}
