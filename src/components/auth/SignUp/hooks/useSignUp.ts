@@ -19,7 +19,7 @@ const useSignUp = () => {
 
     const { mutate: signUp } = useMutation({
         mutationFn: async (payload: SignUpRequest) => {
-            const { data } = await axios.post("/api/signup", payload);
+            const { data } = await axios.post("/api/auth/signup", payload);
             return data;
         },
         onError: (err) => {
