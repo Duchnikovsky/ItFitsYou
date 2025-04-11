@@ -36,3 +36,22 @@ export const SignUpValidator = z
     });
 
 export type SignUpRequest = z.infer<typeof SignUpValidator>;
+
+export const RecoveryValidator = z
+    .object({
+        token: z.string().uuid("Invalid token"),
+        password: z.string().regex(/^[A-Za-z0-9]{6,18}$/, {
+            message:
+                "Password must be 6-18 characters and contain only letters and numbers",
+        }),
+        rep_password: z.string().regex(/^[A-Za-z0-9]{6,18}$/, {
+            message:
+                "Password must be 6-18 characters and contain only letters and numbers",
+        }),
+    })
+    .refine((data) => data.password === data.rep_password, {
+        message: "Passwords do not match",
+        path: ["rep_password"],
+    });
+
+export type RecoveryRequest = z.infer<typeof RecoveryValidator>;

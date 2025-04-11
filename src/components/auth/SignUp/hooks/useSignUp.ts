@@ -28,14 +28,12 @@ const useSignUp = () => {
             }
             return toast.error("Something went wrong. Please try again");
         },
-        onSuccess: () => {
+        onSuccess: (data) => {
             setTimeout(() => {
                 router.push("/signIn");
                 router.refresh();
             }, 3000);
-            return toast.success(
-                "Welcome! Your account has been created. Please sign in to continue."
-            );
+            return toast.success(data.message);
         },
         onSettled: () => {
             setLoading(false);
