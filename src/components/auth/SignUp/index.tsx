@@ -33,24 +33,24 @@ const SignIn = () => {
                     }}
                 >
                     {SignUpInputs.map((input) => (
-                        <div key={input.label} className={style.input_wrapper}>
-                            <Input
-                                label={input.label}
-                                type={input.type}
-                                name={input.label}
-                                placeholder={input.placeholder}
-                                pattern={input.pattern}
-                                maxLength={input.maxLength}
-                                required
-                                value={formValues[input.label]}
-                                onChange={(e) => {
-                                    setFormValues((prev) => ({
-                                        ...prev,
-                                        [input.label]: e.target.value,
-                                    }));
-                                }}
-                            />
-                        </div>
+                        <Input
+                            key={input.label}
+                            label={input.label}
+                            type={input.type}
+                            name={input.label}
+                            placeholder={input.placeholder}
+                            pattern={input.pattern}
+                            maxLength={input.maxLength}
+                            required
+                            disabled={loading}
+                            value={formValues[input.label]}
+                            onChange={(e) => {
+                                setFormValues((prev) => ({
+                                    ...prev,
+                                    [input.label]: e.target.value,
+                                }));
+                            }}
+                        />
                     ))}
                     <div className={style.agreement}>
                         <Checkbox
@@ -67,7 +67,7 @@ const SignIn = () => {
                             </Link>
                         </Checkbox>
                     </div>
-                    <Button type="submit" loading={loading}>
+                    <Button type="submit" loading={loading} disabled={loading}>
                         Sign Up
                     </Button>
                 </form>

@@ -29,24 +29,24 @@ const SignIn = () => {
                     }}
                 >
                     {SignInInputs.map((input) => (
-                        <div key={input.label} className={style.input_wrapper}>
-                            <Input
-                                label={input.label}
-                                type={input.type}
-                                name={input.label}
-                                placeholder={input.placeholder}
-                                pattern={input.pattern}
-                                maxLength={input.maxLength}
-                                required
-                                value={formValues[input.label]}
-                                onChange={(e) => {
-                                    setFormValues((prev) => ({
-                                        ...prev,
-                                        [input.label]: e.target.value,
-                                    }));
-                                }}
-                            />
-                        </div>
+                        <Input
+                            key={input.label}
+                            label={input.label}
+                            type={input.type}
+                            name={input.label}
+                            disabled={loading}
+                            placeholder={input.placeholder}
+                            pattern={input.pattern}
+                            maxLength={input.maxLength}
+                            required
+                            value={formValues[input.label]}
+                            onChange={(e) => {
+                                setFormValues((prev) => ({
+                                    ...prev,
+                                    [input.label]: e.target.value,
+                                }));
+                            }}
+                        />
                     ))}
                     <div className={style.remember}>
                         <Checkbox
@@ -62,7 +62,7 @@ const SignIn = () => {
                             Forgot password?
                         </Link>
                     </div>
-                    <Button type="submit" loading={loading}>
+                    <Button type="submit" loading={loading} disabled={loading}>
                         Sign In
                     </Button>
                 </form>
