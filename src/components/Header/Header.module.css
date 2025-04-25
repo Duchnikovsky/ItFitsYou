@@ -1,0 +1,74 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 72px;
+    padding: 18px 24px;
+    background-color: var(--neutral-200);
+    border-bottom: 1px solid var(--neutral-500);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+        display: flex;
+        align-items: center;
+        height: 36px;
+        gap: 6px;
+
+        .logo {
+            height: 36px;
+        }
+    }
+
+    .user {
+        height: 32px;
+        cursor: pointer;
+        font-weight: 500;
+
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .userName {
+            display: none;
+        }
+
+        &::after {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 6px;
+            background-color: var(--neutral-900);
+            mask-image: url("../../assets/icons/icon-user.svg");
+            mask-size: cover;
+            mask-repeat: no-repeat;
+            --webkit-mask-image: url("../../assets/icons/icon-user.svg");
+            --webkit-mask-size: cover;
+            --webkit-mask-repeat: no-repeat;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        &:after {
+            &::before {
+                background-color: var(--neutral-700);
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        .user {
+            .userName {
+                display: block;
+            }
+        }
+    }
+
+    @media (min-width: 992px) {
+        left: 420px;
+        width: calc(100vw - 420px);
+    }
+}

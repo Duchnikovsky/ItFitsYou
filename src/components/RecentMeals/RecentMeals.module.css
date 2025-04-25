@@ -1,0 +1,18 @@
+.sidebar {
+    width: 100vw;
+    height: calc(100vh - 72px);
+    margin-top: 72px;
+    overflow-y: auto;
+    box-shadow: none;
+
+    @media (min-width: 420px) {
+        width: 420px;
+        height: 100vh;
+        min-height: 800px;
+        border-right: 1px solid var(--neutral-500);
+    }
+
+    @media (min-width: 996px) {
+        margin-top: 0;
+    }
+}

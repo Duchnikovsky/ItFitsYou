@@ -1,10 +1,12 @@
-import CSS from "@/styles/home.module.css";
+import PreviousMeals from "@/components/RecentMeals";
+import style from "./Home.module.css";
+import Header from "@/components/Header";
 
 export default async function Home() {
-
-  return (
-    <div className={CSS.main}>
-      
-    </div>
-  );
+    return (
+        <div className={style.layout}>
+            <Header />
+            <PreviousMeals />
+        </div>
+    );
 }
