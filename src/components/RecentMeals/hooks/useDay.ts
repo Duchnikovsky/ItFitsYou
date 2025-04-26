@@ -31,9 +31,9 @@ const assignDates = () => {
 
 const useDay = () => {
     const [activeDay, setActiveDay] = useState<Date>(new Date());
-    const [days, setDays] = useState<Days[]>(assignDates());
+    const week: Days[] = assignDates();
 
-    return { activeDay, setActiveDay, days };
+    return { activeDay, setActiveDay, week };
 };
 
 export default useDay;

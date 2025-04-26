@@ -1,12 +1,10 @@
 "use client";
 import DaySelector from "./DaySelector";
-import useMeals from "./hooks/useDay";
+import useDay from "./hooks/useDay";
 import style from "./RecentMeals.module.css";
 
 const PreviousMeals = () => {
-    const meals = useMeals();
-
-    const { activeDay } = meals;
+    const days = useDay();
 
     return (
         <div className={style.sidebar}>
@@ -16,7 +14,7 @@ const PreviousMeals = () => {
                     Track your daily nutrition intake
                 </p>
             </div>
-            <DaySelector meals={meals} />
+            <DaySelector days={days} />
         </div>
     );
 };

@@ -1,8 +1,8 @@
 interface DaySelectorProps {
-    meals: {
+    days: {
         activeDay: Date;
         setActiveDay: (date: Date) => void;
-        days: { day: string; date: Date }[];
+        week: { day: string; date: Date }[];
     };
 }
 export type { DaySelectorProps };
