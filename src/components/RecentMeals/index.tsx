@@ -1,6 +1,6 @@
 "use client";
 import DaySelector from "./DaySelector";
-import useMeals from "./hooks/useMeals";
+import useMeals from "./hooks/useDay";
 import style from "./RecentMeals.module.css";
 
 const PreviousMeals = () => {

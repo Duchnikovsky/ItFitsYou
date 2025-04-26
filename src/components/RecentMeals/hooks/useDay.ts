@@ -29,11 +29,11 @@ const assignDates = () => {
     return objectsWithDates;
 };
 
-const useMeals = () => {
+const useDay = () => {
     const [activeDay, setActiveDay] = useState<Date>(new Date());
     const [days, setDays] = useState<Days[]>(assignDates());
 
     return { activeDay, setActiveDay, days };
 };
 
-export default useMeals;
+export default useDay;
