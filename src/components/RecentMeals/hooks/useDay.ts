@@ -18,11 +18,10 @@ interface Days {
 
 const assignDates = () => {
     const today = new Date();
-    const startDate = startOfWeek(today);
+    const startDate = startOfWeek(today, { weekStartsOn: 1 });
 
     const objectsWithDates = daysOfWeek.map((obj, index) => {
-        const dayIndex = index + 1;
-        const date = addDays(startDate, dayIndex);
+        const date = addDays(startDate, index);
         return { ...obj, date };
     });
 

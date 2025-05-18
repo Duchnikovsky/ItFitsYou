@@ -11,7 +11,7 @@
     .day {
         height: 100%;
         width: 40px;
-        padding: 6px 0;
+        padding: 12px;
         display: flex;
         flex-direction: column;
         justify-content: center;
