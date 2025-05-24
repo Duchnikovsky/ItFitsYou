@@ -1,6 +1,7 @@
 "use client";
 import DaySelector from "./DaySelector";
 import useDay from "./hooks/useDay";
+import Meals from "./Meals";
 import style from "./RecentMeals.module.css";
 
 const PreviousMeals = () => {
@@ -15,6 +16,7 @@ const PreviousMeals = () => {
                 </p>
             </div>
             <DaySelector days={days} />
+            <Meals activeDay={days.activeDay} />
         </div>
     );
 };

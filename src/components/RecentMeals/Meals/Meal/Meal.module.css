@@ -1,0 +1,15 @@
+.mealItem {
+    font-size: 12px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: var(--neutral-400);
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--neutral-500);
+    }
+}

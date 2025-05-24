@@ -1,0 +1,81 @@
+.meals {
+    height: 100%;
+    margin-bottom: 24px;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: scroll;
+
+    .meal {
+        width: 100%;
+        height: auto;
+        padding: 16px;
+        border: 1px solid var(--neutral-500);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+
+        .name {
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+
+            &::before {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                content: "";
+                mask-image: url("../../../assets/icons/icon-dot.svg");
+                mask-size: cover;
+                mask-repeat: no-repeat;
+                mask-position: center;
+                background-color: var(--primary-500);
+                width: 16px;
+                height: 16px;
+                display: inline-block;
+            }
+
+            &::marker {
+                font-size: 0;
+            }
+        }
+
+        .kcal {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .label {
+                color: var(--neutral-700);
+            }
+        }
+
+        .mealItems {
+            margin-top: 8px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            .newItem {
+                font-size: 12px;
+                line-height: 18px;
+                display: flex;
+                align-items: center;
+                padding: 4px 8px;
+                border-radius: 4px;
+                background-color: var(--neutral-500);
+                transition: background-color 0.2s ease-in-out;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: var(--neutral-600);
+                }
+            }
+        }
+    }
+}
